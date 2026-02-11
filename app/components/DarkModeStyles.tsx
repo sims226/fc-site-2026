@@ -9,6 +9,12 @@ export default function DarkModeStyles() {
   useEffect(() => {
     const root = document.documentElement;
     
+    // Always clean up first
+    const existingStyle = document.getElementById("dark-mode-overrides");
+    if (existingStyle) {
+      existingStyle.remove();
+    }
+    
     if (theme === "dark") {
       // Apply dark mode styles
       root.style.setProperty("--dark-bg", "#0a0a0a");
@@ -45,12 +51,18 @@ export default function DarkModeStyles() {
       `;
       document.head.appendChild(style);
     } else {
-      // Remove dark mode overrides
-      const existingStyle = document.getElementById("dark-mode-overrides");
-      if (existingStyle) {
-        existingStyle.remove();
-      }
+      // Light mode - ensure dark class is removed
+      root.classList.remove("dark");
+      root.setAttribute("data-theme", "light");
     }
+    
+    // Cleanup function
+    return () => {
+      const styleToRemove = document.getElementById("dark-mode-overrides");
+      if (styleToRemove) {
+        styleToRemove.remove();
+      }
+    };
   }, [theme]);
 
   return null;
