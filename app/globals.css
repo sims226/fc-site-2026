@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors */
+  /* Brand Colors - Light Mode */
   --background: #F7F9FC;
   --primary-text: #13233F;
   --primary-brand: #4CC9F0;
@@ -14,6 +14,14 @@
   /* Utility Colors */
   --orange: #FFA770;
   --coral-red: #D95961;
+}
+
+.dark,
+[data-theme="dark"] {
+  /* Brand Colors - Dark Mode */
+  --background: #0a0a0a;
+  --primary-text: #F7F9FC;
+  --primary-brand: #4CC9F0;
 }
 
 @theme inline {
@@ -33,9 +41,34 @@ body {
   color: var(--primary-text);
   font-family: var(--font-poppins), sans-serif;
   font-weight: 400;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
+}
+
+/* Dark mode support - Tailwind v4 workaround */
+.dark {
+  color-scheme: dark;
+}
+
+/* Target main page containers */
+html.dark body > div > div:first-child {
+  background-color: #0a0a0a !important;
+}
+
+html.dark body > div > div:first-child,
+html.dark main {
+  color: #F7F9FC !important;
+}
+
+/* Target cards and white backgrounds */
+html.dark [class*="bg-white"] {
+  background-color: #1a1a1a !important;
+}
+
+html.dark [class*="border-gray-200"] {
+  border-color: rgb(55 65 81) !important;
 }

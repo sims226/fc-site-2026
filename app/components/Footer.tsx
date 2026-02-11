@@ -1,51 +1,44 @@
-import Image from "next/image";
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 mt-auto">
+    <footer className="bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-700 mt-auto transition-colors">
       <div className="mx-auto max-w-5xl px-6 py-12">
         <div className="mb-8">
-          <Link href="/">
-            <Image
-              src="/logo-light.svg"
-              alt="Future Capital"
-              width={150}
-              height={63}
-            />
-          </Link>
+          <Logo width={150} height={63} />
         </div>
 
         <div className="mb-8">
           <nav className="flex flex-wrap gap-6 text-sm">
             <Link
               href="#"
-              className="text-[#13233F] hover:text-[#4CC9F0] transition-colors"
+              className="text-[#13233F] dark:text-[#F7F9FC] hover:text-[#4CC9F0] transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-[#13233F] hover:text-[#4CC9F0] transition-colors"
+              className="text-[#13233F] dark:text-[#F7F9FC] hover:text-[#4CC9F0] transition-colors"
             >
               Terms of Service
             </Link>
             <Link
               href="#"
-              className="text-[#13233F] hover:text-[#4CC9F0] transition-colors"
+              className="text-[#13233F] dark:text-[#F7F9FC] hover:text-[#4CC9F0] transition-colors"
             >
               Disclosure
             </Link>
             <Link
               href="#"
-              className="text-[#13233F] hover:text-[#4CC9F0] transition-colors"
+              className="text-[#13233F] dark:text-[#F7F9FC] hover:text-[#4CC9F0] transition-colors"
             >
               Legal
             </Link>
           </nav>
         </div>
 
-        <div className="text-xs text-[#13233F] leading-relaxed">
+        <div className="text-xs text-[#13233F] dark:text-[#F7F9FC] leading-relaxed">
           <p>
             The information provided herein is for informational and educational
             purposes only and is intended for use by financial professionals.
