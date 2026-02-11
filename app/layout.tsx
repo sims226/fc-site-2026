@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
+import DarkModeStyles from "./components/DarkModeStyles";
 
 const poppins = Poppins({
   weight: ["400", "700"],
@@ -38,6 +39,7 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} antialiased flex flex-col min-h-screen`}>
         <ThemeProvider>
+          <DarkModeStyles />
           <ThemeToggle />
           <div className="flex-1">
             {children}

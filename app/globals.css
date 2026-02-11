@@ -49,26 +49,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* Dark mode support - Tailwind v4 workaround */
-.dark {
+/* Dark mode support */
+html.dark {
   color-scheme: dark;
-}
-
-/* Target main page containers */
-html.dark body > div > div:first-child {
-  background-color: #0a0a0a !important;
-}
-
-html.dark body > div > div:first-child,
-html.dark main {
-  color: #F7F9FC !important;
-}
-
-/* Target cards and white backgrounds */
-html.dark [class*="bg-white"] {
-  background-color: #1a1a1a !important;
-}
-
-html.dark [class*="border-gray-200"] {
-  border-color: rgb(55 65 81) !important;
 }
